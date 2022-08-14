@@ -11,6 +11,9 @@ namespace SupportPackage.Sound
         public const string EffectSoundVolume = "EffectVolume";
 
         public const string LanguageType = "LanguageType";
+
+        public const int InvalidIndex = -1;
+        public const int DefualtAudioSourceCount = 4;
     }
 
     public class Bgm : MonoBehaviour
