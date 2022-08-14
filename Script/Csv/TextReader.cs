@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -10,7 +9,7 @@ namespace SupportPackage.Csv
     {
         private static class Constants
         {
-            public const int MinimumLineLengthOfCsv = 1;
+            public const int MinimumLineumberOfCsv = 1;
         }
 
         private string csvPath;
@@ -30,9 +29,9 @@ namespace SupportPackage.Csv
 
             const string LineSplitChars = @"\r\n|\n\r|\n|\r";
             string[] csvRows = Regex.Split(data.text, LineSplitChars);
-            if (csvRows.Length <= Constants.MinimumLineLengthOfCsv)
+            if (csvRows.Length <= Constants.MinimumLineumberOfCsv)
             {
-                Debug.LogError("error : " + csvPath + " line 길이 에러");
+                Debug.LogError("The number of csv rows is less than the minimum number.");
                 return;
             }
 
@@ -50,14 +49,12 @@ namespace SupportPackage.Csv
             }
 
             string[] header = Regex.Split(lines[0], SplitChars);
-            for (var i = Constants.MinimumLineLengthOfCsv; i < lines.Length; i++)
+            for (var i = Constants.MinimumLineumberOfCsv; i < lines.Length; i++)
             {
                 var values = Regex.Split(lines[i], SplitChars);
 
                 if (values.Length == 0 || values[0] == "")
-                {
                     continue;
-                }
 
                 List<string> entry = new List<string>();
                 for (var j = 1; j < header.Length && j < values.Length; j++)

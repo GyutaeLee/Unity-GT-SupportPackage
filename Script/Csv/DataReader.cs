@@ -46,7 +46,7 @@ namespace SupportPackage.Csv
             string[] csvRows = Regex.Split(data.text, LineSplitChars);
             if (csvRows.Length <= Constants.MinimumLineLengthOfCsv)
             {
-                Debug.LogError("error : " + csvPath + " line 길이 에러");
+                Debug.LogError("The number of csv rows is less than the minimum number.");
                 return;
             }
 

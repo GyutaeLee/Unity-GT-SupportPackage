@@ -38,7 +38,10 @@ namespace SupportPackage.Csv
             }
 
             if (this.datas.ContainsKey(infoID) == false)
+            {
+                Debug.Log("There is no value matching the infoId in the datas.");
                 return default(T);
+            }
 
             return this.datas[infoID];
         }
@@ -51,7 +54,10 @@ namespace SupportPackage.Csv
             }
 
             if (this.datas.Count <= index)
+            {
+                Debug.Log("The index is larger than the number of data.");
                 return default(T);
+            }
 
             return this.datas.Values[index];
         }

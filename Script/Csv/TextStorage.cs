@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Analytics;
 
 namespace SupportPackage.Csv
 {
@@ -20,7 +17,9 @@ namespace SupportPackage.Csv
             }
         }
 
-        // Dictionary <csv name, Dictionary<info id, List<country index>> texts;
+        /// <summary>
+        /// Dictionary <csv name, Dictionary<info id, List<country index>> texts;
+        /// </summary>
         private Dictionary<string, Dictionary<int, List<string>>> texts;
 
         public void ChangeDatas(string csvName, Dictionary<int, List<string>> textDictionaries)
@@ -40,14 +39,11 @@ namespace SupportPackage.Csv
                 ReadAndStoreDatas(csvName);
             }
 
-            if (this.texts.ContainsKey(csvName) == false)
+            if (!this.texts.ContainsKey(csvName) || !this.texts[csvName].ContainsKey(infoID) || this.texts[csvName][infoID].Count <= countryIndex)
+            {
+                Debug.Log("The text does not exist.");
                 return "";
-
-            if (this.texts[csvName].ContainsKey(infoID) == false)
-                return "";
-
-            if (this.texts[csvName][infoID].Count <= countryIndex)
-                return "";
+            }
 
             return this.texts[csvName][infoID][countryIndex];
         }
