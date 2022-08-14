@@ -41,7 +41,7 @@ namespace SupportPackage.Csv
 
             if (!this.texts.ContainsKey(csvName) || !this.texts[csvName].ContainsKey(infoID) || this.texts[csvName][infoID].Count <= countryIndex)
             {
-                Debug.Log("The text does not exist.");
+                Debug.LogError("The text does not exist.");
                 return "";
             }
 
