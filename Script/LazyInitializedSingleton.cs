@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SupportPackage
 {
-    public class Singleton<T> : MonoBehaviour where T : Component
+    public class LazyInitializedSingleton<T> : MonoBehaviour where T : Component
     {
         private static T instance;
         public static T Instance
