@@ -68,7 +68,7 @@ namespace SupportPackage.Sound
 
             if (bgmAudioClip == null)
             {
-                Debug.Log("There is no Bgm audio clip.");
+                Debug.LogError("There is no Bgm audio clip.");
                 return false;
             }
 
